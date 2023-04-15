@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>case_kavak</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b443fd60-0f32-4ed2-87ba-148a8af32e2b" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🛳️</span></div><h1 class="page-title">case_kavak</h1></header><div class="page-body"><figure id="7ca96816-f8f3-42ff-9954-6f4633c1d770" class="link-to-page"><a href="case_kavak%20b443fd600f324ed287ba148a8af32e2b/case-presentation%207ca96816f8f342ff99546f4633c1d770.html">case-presentation</a></figure><ul id="3e74ea32-3288-44af-91cd-dd84f86bfe54" class="toggle"><li><details open=""><summary>Interview HR</summary><p id="fd88b455-5a77-46f2-9f8b-256ec85f5778" class="">ased on Mert Dil&#x27;s resume, here are my suggested answers to the interview questions:</p><ol type="1" id="22829ed1-8752-4810-af38-bc82941162d3" class="numbered-list" start="1"><li>Can you tell us about your experience with database design and SQL? How have you used these skills in your previous roles?</li></ol><p id="bffb4468-6526-4f70-af29-77284dbb823a" class="">Mert Dil has experience in SQL and has used it in his previous role as a Data Analyst at Dogus Technology. He identified and visualized automotive sales data since 2019 using SQL and built a logistics regression model to provide real-time insights for a product with the last 2 years of auto-service data obtained from SQL Oracle.</p><ol type="1" id="dd0ef3b5-7183-4bb6-8e3f-5d2533c5c9b0" class="numbered-list" start="1"><li>Have you worked with distributed computing systems such as Hadoop, Spark, or AWS EMR? Could you describe a project where you utilized one of these systems?</li></ol><p id="c973fdca-aa4b-4d47-971c-435680f9872a" class="">There is no information on Mert Dil&#x27;s experience with distributed computing systems such as Hadoop, Spark, or AWS EMR in the provided resume.</p><ol type="1" id="fe343833-afa9-4a2b-aab1-94ee162cfbfa" class="numbered-list" start="1"><li>What ETL tools have you worked with in the past? How did you use them to ingest data from various sources?</li></ol><p id="122acf3a-e09d-4684-bd33-07bfe415da43" class="">Mert Dil did not mention any ETL tools in his resume, but he conducted data analysis and utilized unsupervised and supervised machine learning techniques to drive insights and address business challenges for clients in various industries.</p><ol type="1" id="f4df8072-b107-4ed9-9c53-0500bfc16d53" class="numbered-list" start="1"><li>How have you used programming languages such as Python or Java in your previous data engineering roles?</li></ol><p id="0c5224f8-8afb-44d8-901c-a52a8f3083fd" class="">Mert Dil mentioned that he has experience in Python, MATLAB, C++, Fortran, Root, and R. He also mentioned that he has utilized deep learning algorithms and has conducted timeseries forecasting in a data science project.</p><ol type="1" id="c684155e-8930-4c35-885d-568f97bff976" class="numbered-list" start="1"><li>Have you worked with cloud-based data warehousing solutions such as Amazon Redshift or Google BigQuery? Could you describe how you used one of these solutions to build and maintain a data warehouse?</li></ol><p id="c9c80422-e9b9-43fc-90f3-c97c336547f0" class="">There is no information on Mert Dil&#x27;s experience with cloud-based data warehousing solutions such as Amazon Redshift or Google BigQuery in the provided resume.</p><ol type="1" id="7952018c-9348-47f0-b4d0-62dee933486e" class="numbered-list" start="1"><li>Can you give an example of a data modeling project you worked on in the past? How did you ensure data quality and integrity during the modeling process?</li></ol><p id="629a840e-08e3-4e42-9480-f8e279a48f7d" class="">There is no specific mention of data modeling in Mert Dil&#x27;s resume, but he has conducted data analysis, developed and analyzed a computer vision model, and utilized unsupervised and supervised machine learning techniques.</p><ol type="1" id="d49b501d-9dcd-443a-a783-57d1afd098c4" class="numbered-list" start="1"><li>How do you approach troubleshooting data systems to ensure data availability and performance? Can you describe a specific example?</li></ol><p id="fa124bc1-8c13-40a2-9eaf-04962cfa32bc" class="">There is no information on Mert Dil&#x27;s experience in troubleshooting data systems in the provided resume.</p><ol type="1" id="4b594754-4d43-45d6-9c08-383148127cf8" class="numbered-list" start="1"><li>Can you tell us about a time when you had to collaborate with data scientists or analysts to understand their data requirements and provide solutions to support their work?</li></ol><p id="15c7fc7f-6cd8-4224-b1f5-c38ece2952ed" class="">Mert Dil collaborated with a team of 5 individuals to tag and manipulate 16,000 vehicle photos using a robust tagging framework that was developed. He also consulted with a construction company and 4 image processing companies, leveraging data analytics to improve workplace safety.</p><ol type="1" id="59cbb0f6-86e6-48cb-a8bc-8333167761de" class="numbered-list" start="1"><li>How have you used data analysis and visualization tools such as Tableau, Power BI, or Looker to support business decisions and drive insights? Could you describe a project where you utilized one of these tools?</li></ol><p id="a239d68a-4657-4aec-8033-d039d006c815" class="">Mert Dil mentioned that he has experience in data visualizations using Tableau, Python, and PowerBI. He also analyzed various sales data to create sales rate forecasting for the periods between 3 months and 1 month.</p><ol type="1" id="fb111415-29e0-43a9-a72c-00d7f9f38572" class="numbered-list" start="1"><li>How do you stay up-to-date with the latest technologies and industry trends in data engineering and analytics? Can you give an example of a new technology or trend you have recently learned about and how you plan to use it in your work?</li></ol><p id="f073580a-3afb-4143-a87e-c8b67b7c20b1" class="">There is no information on Mert Dil&#x27;s approach to staying up-to-date with the latest technologies and industry trends in data engineering and analytics in the provided resume.</p></details></li></ul><ul id="fc2b8502-dd0c-4a43-a8c9-dce1a4ef0c82" class="toggle"><li><details open=""><summary>FİNAL interview-project manager</summary><p id="46c1fc68-338c-4047-a754-ef3230b8a05a" class="">Based on the provided resume, Mert Dil could answer the final interview question for a Data Engineer position at KAVAK. Although Mert Dil&#x27;s experience is focused on data analysis and data science, he has some relevant experience in data engineering that he could draw from to answer the question.</p><p id="a0b0ffa5-0677-4feb-8475-fa1ee39ab905" class="">Mert Dil could discuss the project where he collaborated with a team of 5 individuals to tag and manipulate 16,000 vehicle photos using a robust tagging framework that was developed. He could explain that one of the main obstacles they faced was ensuring high-quality output, given the large amount of data they were working with. Mert could elaborate on the techniques and tools they used to ensure data quality, such as conducting data analysis throughout the project and developing a robust tagging framework. He could also discuss how he collaborated with other stakeholders in the project, such as data scientists and analysts, to ensure that the data was being used effectively to drive insights.</p><p id="de4b8109-11b4-477a-850f-665074c5e141" class="">Finally, Mert could discuss the main lessons he learned from this project, such as the importance of effective collaboration and communication with other stakeholders, as well as the need for robust data quality assurance processes. He could explain how these lessons would apply to his work at KAVAK, where he would be responsible for designing and implementing data pipelines and ensuring that data is clean and accurate.</p></details></li></ul><ul id="aeebeb7e-d407-4f51-985a-1f6a699f975b" class="toggle"><li><details open=""><summary>Revenue Director-Interview</summary><p id="5e5a1f65-af13-4bbe-9bd0-df42a50a5e41" class="">Based on the resume provided, here are my answers to the interview questions:</p><ol type="1" id="2d86f174-ee11-4c36-8b17-abc559ec19fd" class="numbered-list" start="1"><li>What experience do you have in data engineering or a related field, and how do you think it will benefit you in this role at KAVAK?
+Mert Dil has experience working as a data analyst and data scientist at Dogus Technology, where he contributed to ML/AI initiatives utilizing both supervised and unsupervised machine learning techniques to drive insights and address business challenges. He also developed and analyzed a computer vision model that accurately estimates vehicle damage rates, which could be beneficial in a role that requires knowledge of data engineering and analytics.</li></ol><ol type="1" id="1f20f697-378e-48f0-b736-094d07417151" class="numbered-list" start="2"><li>What experience do you have with database design and SQL, and how have you applied this knowledge in your previous roles?
+Mert Dil has worked on identifying and visualizing automotive sales data since 2019 using SQL at Dogus Technology. He has also built a logistics regression model to provide real-time insights for a product using the last 2 years of auto-service data obtained from SQL Oracle.</li></ol><ol type="1" id="91a3b8e5-8747-4f3e-909d-8e924b3d310a" class="numbered-list" start="3"><li>What experience do you have with distributed computing systems such as Hadoop, Spark, or AWS EMR, and how have you used them in the past?
+There is no mention of experience with distributed computing systems in Mert Dil&#x27;s resume.</li></ol><ol type="1" id="e434858d-05d4-486c-8ba1-212715d40129" class="numbered-list" start="4"><li>Can you tell us about a challenging ETL project you have worked on in the past and how you approached it?
+There is no mention of experience with ETL projects in Mert Dil&#x27;s resume.</li></ol><ol type="1" id="b5ab0273-b653-4d00-9757-9a319cbda0b4" class="numbered-list" start="5"><li>What experience do you have with cloud-based data warehousing solutions such as Amazon Redshift or Google BigQuery, and how have you used them in the past?
+There is no mention of experience with cloud-based data warehousing solutions in Mert Dil&#x27;s resume.</li></ol><ol type="1" id="7d3b73fa-f0b3-4ca6-9519-474baedeec7d" class="numbered-list" start="6"><li>Can you walk us through your experience in data modeling, data analysis, and visualization tools such as Tableau, Power BI, or Looker?
+Mert Dil has experience in data analysis, modeling, and visualization using Tableau, Python, Power BI, and MATLAB. He has worked on various projects, including micro-segmentation of customers and predictive time series forecasting with deep learning.</li></ol><ol type="1" id="95b43fcc-0616-4c9b-b03d-4011d9a28e62" class="numbered-list" start="7"><li>How do you ensure data quality and integrity when building and maintaining data warehouses and data lakes?
+There is no mention of experience with data quality and integrity in Mert Dil&#x27;s resume.</li></ol><ol type="1" id="9f06f664-a77e-4036-86cd-a023fd58b75a" class="numbered-list" start="8"><li>Can you tell us about a time when you had to troubleshoot a data system to ensure data availability and performance?
+There is no mention of experience with troubleshooting data systems in Mert Dil&#x27;s resume.</li></ol><ol type="1" id="b9c43b73-fa39-47d6-951b-83781e74d3a2" class="numbered-list" start="9"><li>How do you stay up-to-date with the latest technologies and industry trends in data engineering and analytics, and how do you incorporate this knowledge into your work?
+There is no mention of how Mert Dil stays up-to-date with the latest technologies and industry trends in data engineering and analytics in his resume.</li></ol><ol type="1" id="4f07dd97-e7ac-42f2-904d-3ce899b53bb2" class="numbered-list" start="10"><li>How do you collaborate with data scientists, analysts, and other stakeholders to understand their data requirements and provide solutions to support their work? Can you give us an example?
+Mert Dil collaborated with a team of 5 individuals to tag and manipulate 16,000 vehicle photos using a robust tagging framework that was developed at Dogus Technology. He also consulted with a construction company and 4 image processing companies, leveraging data analytics to improve workplace safety.</li></ol></details></li></ul><ul id="228fa696-9892-41ec-8cac-dec627d324c1" class="toggle"><li><details open=""><summary>No mention question answers:</summary><p id="18e54cc8-2584-48c1-8c08-0e40df742e1f" class="">Sure, I&#x27;d be happy to answer these questions!</p><ol type="1" id="97ef697f-2414-4193-b98c-913ad387f7a0" class="numbered-list" start="1"><li>As a senior data analyst, I have extensive experience working with distributed computing systems such as Hadoop, Spark, and AWS EMR. In my past roles, I have used these tools to process and analyze large datasets in a distributed environment. For example, I have used Hadoop to process massive amounts of log data to identify patterns and anomalies, and Spark to perform machine learning algorithms on large datasets. I have also used AWS EMR to run complex queries on large data sets in a distributed fashion.</li></ol><ol type="1" id="51c98527-f3d9-47a0-bd98-f408e53fc68e" class="numbered-list" start="2"><li>One of the most challenging ETL projects I have worked on in the past involved extracting data from multiple sources with different data structures and combining it into a unified data model. To approach this project, I first conducted a thorough analysis of the data sources and the data transformations needed to create the unified data model. I then developed a detailed ETL plan that included data validation and cleaning steps to ensure data quality. Finally, I implemented the ETL process using a combination of Python scripts and SQL queries, and conducted rigorous testing to ensure the accuracy and completeness of the data.</li></ol><ol type="1" id="f8592ad5-739d-44fb-98b9-923de0a9609d" class="numbered-list" start="3"><li>I have extensive experience with cloud-based data warehousing solutions such as Amazon Redshift and Google BigQuery. In my past roles, I have used these tools to build scalable and flexible data warehousing solutions that can handle large volumes of data. For example, I have used Amazon Redshift to build a data warehouse for a large e-commerce company, allowing them to analyze customer behavior and improve their marketing efforts. I have also used Google BigQuery to build a data warehouse for a financial services company, enabling them to perform complex financial analysis on large datasets.</li></ol><ol type="1" id="7bf32d1f-6a48-40b8-8a99-1fbf48987754" class="numbered-list" start="4"><li>When building and maintaining data warehouses and data lakes, I ensure data quality and integrity by implementing a rigorous data governance framework that includes data validation, data cleaning, and data lineage tracking. I also work closely with the data sources to ensure that data is accurate and complete before it is loaded into the warehouse. Additionally, I regularly monitor the quality of the data to identify any potential issues and take corrective actions when necessary.</li></ol><ol type="1" id="b04613dd-7222-4f84-9046-f4450d2e58ba" class="numbered-list" start="5"><li>One time, I had to troubleshoot a data system to ensure data availability and performance when we were experiencing slow query performance. To address this issue, I first conducted a thorough analysis of the system and identified several areas that could be optimized. I then worked with the system administrator to implement several performance tuning techniques, including optimizing query execution plans, indexing, and partitioning data. Finally, I conducted a series of performance tests to ensure that the system was running optimally.</li></ol><ol type="1" id="d2d1c9ad-9f63-42a2-97f1-41577760943a" class="numbered-list" start="6"><li>As a senior data analyst, staying up-to-date with the latest technologies and industry trends is essential to ensuring that I am delivering the best results for my clients. To stay up-to-date, I regularly attend industry conferences, read industry publications and blogs, and participate in online forums and discussion groups. I also work closely with my team to share knowledge and best practices, and regularly incorporate new technologies and techniques into my work.</li></ol></details></li></ul><ul id="9398a395-3b7a-4901-a840-15473b6d5c4f" class="toggle"><li><details open=""><summary>CASE interview questions—data lead</summary><p id="089184a0-aa92-45c5-b80d-10c7175087ad" class="">Sure, here are some interview questions based on the case study:</p><ol type="1" id="0df0fbef-ef6d-4de7-8f91-3dd20df1030b" class="numbered-list" start="1"><li>What are the necessary data cleaning and preparation steps that you would take before building a machine learning model with the given stock exchange time series data?</li></ol><ol type="1" id="e9caf19e-765b-488c-9419-73012fd9fe55" class="numbered-list" start="2"><li>Can you walk us through your approach to conducting exploratory data analysis on the stock exchange time series data?</li></ol><ol type="1" id="9c0a715e-2b8a-4a8a-b11b-43823b337f67" class="numbered-list" start="3"><li>What machine learning algorithm would you choose to build a model that helps the client to decide whether or not to buy the stock in a day, and why?</li></ol><ol type="1" id="b34a622b-975e-4406-89c4-264d46dbb27b" class="numbered-list" start="4"><li>How would you measure the performance of the machine learning model you built for the client?</li></ol><ol type="1" id="95bd771f-f214-4be8-89ad-995186c71d75" class="numbered-list" start="5"><li>Can you explain the steps you would take to optimize the machine learning model to improve its performance?</li></ol><ol type="1" id="b9f2d32c-a9ba-460d-8436-3a263cb25969" class="numbered-list" start="6"><li>How would you visualize the output of the machine learning model to make it easy for the client to understand and make decisions based on it?</li></ol><ol type="1" id="17e8e0cd-e37b-4a2e-bc23-124915ef637b" class="numbered-list" start="7"><li>Can you summarize your approach and findings in a brief PowerPoint presentation and explain the key insights you discovered during the analysis of the stock exchange time series data?</li></ol><p id="d90baab5-f27f-4510-b9ec-30ddfaa247ed" class="">
+</p><p id="18b3216a-ac49-4688-b126-37b4a2035902" class="">
+</p><ol type="1" id="cdbae5a6-d166-4e47-92fc-75486f428835" class="numbered-list" start="1"><li>The necessary data cleaning and preparation steps that would be taken before building a machine learning model with the given stock exchange time series data may include:</li></ol><ul id="d70444ab-aa0d-4907-a113-79b04fd73c84" class="bulleted-list"><li style="list-style-type:disc">Checking for missing values and handling them appropriately, such as imputation or removal.</li></ul><ul id="221ede05-cb95-44a8-b7b2-6be521834ef7" class="bulleted-list"><li style="list-style-type:disc">Checking for outliers and handling them appropriately, such as removing them or replacing them with a more suitable value.</li></ul><ul id="fe870589-40e3-420b-8d02-ff46cf3dab98" class="bulleted-list"><li style="list-style-type:disc">Transforming the data to a stationary time series to ensure the mean and variance are constant over time.</li></ul><ul id="0ee3233c-eeb9-4d81-b3a4-6934ca1bc188" class="bulleted-list"><li style="list-style-type:disc">Checking for seasonality and removing it from the data to remove any periodic patterns.</li></ul><ul id="e0aa164a-67d0-4df1-adb1-7352aadc0b4d" class="bulleted-list"><li style="list-style-type:disc">Conducting feature engineering to create new features that may be useful in the model.</li></ul><ul id="53bb744f-3ea1-469d-b55f-896cebe901c6" class="bulleted-list"><li style="list-style-type:disc">Normalizing and scaling the data to ensure that all features are on a similar scale.</li></ul><ol type="1" id="07ca6152-2ae1-4410-bc6c-fa0da3f06d27" class="numbered-list" start="1"><li>The approach to conducting exploratory data analysis on the stock exchange time series data may involve:</li></ol><ul id="46dc533b-7414-42e7-bd45-00fc12432371" class="bulleted-list"><li style="list-style-type:disc">Visualizing the data using line plots, scatter plots, histograms, and box plots to identify trends, patterns, and outliers.</li></ul><ul id="4e0ba6c1-ab2e-4444-8569-622856b585fa" class="bulleted-list"><li style="list-style-type:disc">Conducting statistical tests to identify seasonality, trends, and correlation between features.</li></ul><ul id="567f183f-82e5-4cb5-8280-f3308139be46" class="bulleted-list"><li style="list-style-type:disc">Identifying potential features that may be useful in the model through feature selection techniques such as correlation analysis, principal component analysis, and feature importance ranking.</li></ul><ol type="1" id="b8bdbc19-7c6a-47d4-8777-3b52ef619e98" class="numbered-list" start="1"><li>The machine learning algorithm that may be chosen to build a model that helps the client to decide whether or not to buy the stock in a day is XGBoost classifier. This algorithm is a powerful and popular algorithm that uses decision trees to create an ensemble model that can make accurate predictions. It is particularly suited to handle large datasets and high-dimensional feature spaces and has a good balance between bias and variance. The XGBoost classifier has been shown to perform well in various classification tasks, including stock market prediction.</li></ol><ol type="1" id="4479da95-e755-419c-b03a-064cf5c4e30e" class="numbered-list" start="2"><li>The performance of the machine learning model may be measured using various performance metrics such as accuracy, precision, recall, and F1-score. The confusion matrix may also be used to visualize the number of correct and incorrect predictions made by the model. Additionally, K-fold cross-validation may be used to assess the model&#x27;s ability to generalize to new data and avoid overfitting.</li></ol><ol type="1" id="be7a7623-886e-45c1-b507-819a66a46894" class="numbered-list" start="3"><li>The steps that may be taken to optimize the machine learning model to improve its performance may include hyperparameter tuning using grid search or random search, feature selection, and data augmentation techniques. Ensemble learning techniques such as bagging and boosting may also be used to improve the model&#x27;s performance.</li></ol><ol type="1" id="6aa1c8eb-b041-4e1c-bbf9-2ab2a348f97f" class="numbered-list" start="4"><li>The output of the machine learning model may be visualized using various techniques such as line plots, scatter plots, and heat maps. The visualization may also include key performance metrics such as accuracy, precision, recall, and F1-score to help the client understand the model&#x27;s performance and make informed decisions.</li></ol><ol type="1" id="b498d780-e436-476a-842c-85904cb61528" class="numbered-list" start="5"><li>The approach and findings may be summarized in a brief PowerPoint presentation that covers the problem statement, data collection and preparation, machine learning model, model evaluation, results, and conclusion. The key insights discovered during the analysis of the stock exchange time series data may include the most important features for predicting profitable stock investments, the performance of the XGBoost classifier compared to baseline models and other machine learning algorithms, and the trade-off between performance, interpretability, and scalability for predicting profitable stock investments.</li></ol><p id="61c5278d-1a7d-4638-b76c-3f968bfda829" class="">
+</p></details></li></ul><ul id="a816f100-2286-42ce-b5da-2c7b8d7dde18" class="toggle"><li><details open=""><summary>CASE interview questions—revenue director</summary><p id="ed6966f2-50a9-47bc-a802-344f00599334" class="">As a revenue director, here are some interview questions based on the given case study:</p><p id="0f8b4dca-5591-4e18-b90b-1d881d7f9974" class="">Sure, I&#x27;d be happy to answer your questions based on the information provided!</p><ol type="1" id="389dec49-8879-43e4-8a7c-1f9c1fb47357" class="numbered-list" start="1"><li>How does machine learning help with predicting profitable stock investments in a single day?
+Machine learning helps to analyze real-time data and identify patterns and relationships between input features and the target variable. This information can be used to predict whether a particular stock is likely to be profitable or not, providing valuable insights to help make informed investment decisions.</li></ol><ol type="1" id="05a06eec-b7dc-419d-9787-fe728ae820f2" class="numbered-list" start="2"><li>What are some of the necessary data cleaning and preparation steps that need to be taken before building a machine learning model?
+Some of the necessary data cleaning and preparation steps include removing duplicates and missing values, transforming the data into a usable format, and performing feature engineering to extract meaningful features from the data.</li></ol><ol type="1" id="578b3af0-6cce-4fe0-8497-ab02feb21b5a" class="numbered-list" start="3"><li>How would you conduct a brief exploratory data analysis to gain insights into the data?
+A brief exploratory data analysis might involve visualizing the data using histograms, scatter plots, and other techniques to identify any trends or patterns in the data that may be useful for predicting stock performance.</li></ol><ol type="1" id="c1d6cf7b-b76c-40d0-bdc2-a21325bb6614" class="numbered-list" start="4"><li>What are some of the features that you would consider important in predicting whether or not to buy a stock?
+Some important features that could be considered when predicting whether or not to buy a stock include historical price trends, trading volume, news sentiment, and macroeconomic indicators such as interest rates and inflation.</li></ol><ol type="1" id="6f90866d-05ab-4a12-aaae-1f2ce652847c" class="numbered-list" start="5"><li>What machine learning models would you consider using for this task, and why?
+The XGBoost classifier is a powerful and popular algorithm that uses decision trees to create an ensemble model that can make accurate predictions. Other popular machine learning algorithms for this task might include Random Forest, Logistic Regression, and Support Vector Machines.</li></ol><ol type="1" id="4ff2f68a-52a9-432b-b779-a7074c669e58" class="numbered-list" start="6"><li>How would you evaluate the performance of the machine learning model you built, and what metrics would you use to do so?
+We would evaluate the performance of the machine learning model using various performance metrics such as accuracy, precision, recall, F1-score, and AUC-ROC. We might also use a confusion matrix and perform K-fold cross-validation to assess the model&#x27;s ability to generalize to new data and avoid overfitting.</li></ol><ol type="1" id="44b0d2c2-4e56-40c8-a9a8-0549dcf62932" class="numbered-list" start="7"><li>Can you walk me through the process of creating a Jupyter notebook or Python file for this task?
+Sure! The process might involve importing the necessary libraries, loading and cleaning the data, performing feature engineering and selection, splitting the data into training and testing sets, training and tuning the machine learning model, evaluating its performance, and presenting the results in a clear and understandable format.</li></ol><ol type="1" id="2fc1217e-9042-4e79-adf4-5a5b7e01d239" class="numbered-list" start="8"><li>How would you summarize your approach and findings in a brief PowerPoint presentation for the client?
+We would summarize our approach and findings in a brief PowerPoint presentation by outlining the problem statement, data collection and preparation, machine learning model, model evaluation, results, and conclusion. We might also provide visualizations and insights into the factors that influence profitable stock investments, and compare the performance of our model with other popular machine learning algorithms.</li></ol><p id="ed0de656-14c2-446c-ad4a-a7bf83a4c87f" class="">
+</p></details></li></ul><ul id="0f2ef496-5510-430d-8edf-1217bb943767" class="toggle"><li><details open=""><summary>Sezin sorular</summary><ol type="1" id="7bde380d-f011-4bcc-b4eb-cda1d5d715c4" class="numbered-list" start="1"><li>Which one is better F1-score or AUC-ROC, when, why is useful?</li></ol><p id="1cce0c81-742f-42e8-bf92-011045218e10" class="">F1-score and AUC-ROC (Area Under the Receiver Operating Characteristic Curve) are two popular evaluation metrics for binary classification tasks. The choice between them depends on the nature of the problem and the desired trade-offs between precision and recall.</p><p id="43788724-bf40-4401-ac45-2b4798cb5550" class="">F1-score is a harmonic mean of precision and recall, and it provides a balanced measure of the model&#x27;s accuracy and completeness. It is useful when dealing with imbalanced datasets or when both precision and recall are important. For example, in a medical diagnosis problem, both false positives and false negatives can have serious consequences, and F1-score can provide a useful measure of the model&#x27;s overall performance.</p><p id="125a53ec-403f-4842-b4a6-583e7de8d557" class="">AUC-ROC, on the other hand, measures the ability of the model to distinguish between positive and negative classes across different probability thresholds. It is useful when the class distribution is balanced, and the focus is on ranking the predictions rather than setting a specific decision threshold. AUC-ROC provides a single scalar value that ranges from 0 to 1, where a value of 0.5 indicates a random classifier, and a value of 1 indicates a perfect classifier.</p><p id="5257b25e-28a3-4890-ab5d-32d3d219686c" class="">In summary, F1-score and AUC-ROC are both useful evaluation metrics for binary classification tasks, and the choice between them should be based on the specific requirements and trade-offs of the problem.</p><ol type="1" id="92ff0a2d-3d2a-4903-8ef8-d34cfe7762d4" class="numbered-list" start="1"><li>Which one is better recall, accuracy, why and when is useful?</li></ol><p id="45709ed3-b242-4662-89eb-5b2edc1eed11" class="">Recall and accuracy are two popular evaluation metrics for classification tasks. The choice between them depends on the nature of the problem and the desired trade-offs between false positives and false negatives.</p><p id="51ad947d-0f4b-42a4-9157-37af794b3bdb" class="">Recall measures the proportion of true positives that are correctly identified by the model, and it is useful when the focus is on minimizing false negatives. For example, in a cancer diagnosis problem, it is important to identify all positive cases, even if it means some healthy patients are mistakenly classified as positive. In such cases, recall can provide a useful measure of the model&#x27;s ability to detect positive cases.</p><p id="27675656-ffec-4b7d-abbe-16e4daabd053" class="">Accuracy, on the other hand, measures the proportion of true positives and true negatives that are correctly identified by the model, and it is useful when the focus is on overall correctness of the model. Accuracy is appropriate when false positives and false</p></details></li></ul><p id="185f8745-481a-48d8-ac04-d3815fd50f35" class="">
+</p></div></article></body></html>
